@@ -1,2 +1,2 @@
-# Bharat-Intern
-Web Development Internship at Bharat Intern
+# Netflix Clone
+A simple homepage of Netflix using HTML, CSS and JS.
