@@ -7,24 +7,24 @@ const BannerURL = "https://image.tmdb.org/t/p/original";
 const ImgURL = "https://image.tmdb.org/t/p/w300"; //change width here
 
 //requestd for Movies data
-const requests ={
+const requests = {
 
-    fetchTrending: `${BaseURL}/trending/all/week?${api}&language=en-US`,
-    fetchNetflixOriginals: `${BaseURL}/discover/tv?${api}&with_networks=213`,
-    fetchFamilyMovies: `${BaseURL}/discover/tv?${api}&with_genres=10751`,
-    fetchComedyMovies: `${BaseURL}/discover/tv?${api}&with_genres=35`,
-    fetchCrimeMovies: `${BaseURL}/discover/tv?${api}&with_genres=80`,
-    fetchRomanceMovies: `${BaseURL}/discover/movie?${api}&with_genres=10749`,
-    fetchDocumentaries: `${BaseURL}/discover/movie?${api}&with_genres=99`,
-    fetchAnimeMovies: `${BaseURL}/discover/movie?${api}&with_genres=14`,
-    fetchDramaMovies: `${BaseURL}/discover/movie?${api}&with_genres=18`,
-    fetchMysteryMovies: `${BaseURL}/discover/movie?${api}&with_genres=9648`,
+  fetchTrending: `${BaseURL}/trending/all/week?${api}&language=en-US`,
+  fetchNetflixOriginals: `${BaseURL}/discover/tv?${api}&with_networks=213`,
+  fetchFamilyMovies: `${BaseURL}/discover/tv?${api}&with_genres=10751`,
+  fetchComedyMovies: `${BaseURL}/discover/tv?${api}&with_genres=35`,
+  fetchCrimeMovies: `${BaseURL}/discover/tv?${api}&with_genres=80`,
+  fetchRomanceMovies: `${BaseURL}/discover/movie?${api}&with_genres=10749`,
+  fetchDocumentaries: `${BaseURL}/discover/movie?${api}&with_genres=99`,
+  fetchAnimeMovies: `${BaseURL}/discover/movie?${api}&with_genres=14`,
+  fetchDramaMovies: `${BaseURL}/discover/movie?${api}&with_genres=18`,
+  fetchMysteryMovies: `${BaseURL}/discover/movie?${api}&with_genres=9648`,
 
 };
 
 //used to truncate the string
-function truncate(str , n){
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+function truncate(str, n) {
+  return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
 //banner
 fetch(requests.fetchNetflixOriginals)
@@ -34,24 +34,24 @@ fetch(requests.fetchNetflixOriginals)
     console.log(data.results);
     // every refresh will change movie banner
 
-    const setMovie = 
-        data.results[Math.floor(Math.random() * data.results.length - 1)];
+    const setMovie =
+      data.results[Math.floor(Math.random() * data.results.length - 1)];
 
-        var banner = document.getElementById("banner");
-        var bannerTitle = document.getElementById("banner-title");
-        var bannerDesc = document.getElementById("banner-description");
+    var banner = document.getElementById("banner");
+    var bannerTitle = document.getElementById("banner-title");
+    var bannerDesc = document.getElementById("banner-description");
 
-        /*console.log("bannerTitle element:", bannerTitle);
-        console.log("bannerDesc element:", bannerDesc);
+    /*console.log("bannerTitle element:", bannerTitle);
+    console.log("bannerDesc element:", bannerDesc);
 
-        console.log("setMovie name:", setMovie.name);
-        console.log("setMovie overview:", setMovie.overview);*/
+    console.log("setMovie name:", setMovie.name);
+    console.log("setMovie overview:", setMovie.overview);*/
 
-        banner.style.backgroundImage  =
-          "url(" + BannerURL + setMovie.backdrop_path + ")";
-        bannerDesc.innerHTML = truncate(setMovie.overview, 150);
-        bannerTitle.innerHTML = setMovie.name;
-        console.log("setMoviename");
+    banner.style.backgroundImage =
+      "url(" + BannerURL + setMovie.backdrop_path + ")";
+    bannerDesc.innerHTML = truncate(setMovie.overview, 150);
+    bannerTitle.innerHTML = setMovie.name;
+    console.log("setMoviename");
   });
 
 //****************Movies Row********************/
@@ -83,7 +83,7 @@ fetch(requests.fetchNetflixOriginals)
 
 
     data.results.forEach(movie => {
-      
+
       const poster = document.createElement("img");
       poster.className = "row-PosterLarge";
 
@@ -412,3 +412,21 @@ fetch(requests.fetchDramaMovies)
       rowPosters.appendChild(poster);
     });
   });
+
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
