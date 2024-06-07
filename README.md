@@ -33,7 +33,7 @@ You can check out the live demo of the application [here](netflixclonev3rma.netl
 
 ## Usage
 
-Open `home.html` in your favorite web browser to view the app.
+Open `index.html` in your favorite web browser to view the app.
 
 ## Technologies Used
 
