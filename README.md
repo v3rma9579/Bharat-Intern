@@ -15,7 +15,7 @@ A simple Netflix clone application built using HTML, CSS, jQuery, and JavaScript
 
 ## Demo
 
-You can check out the live demo of the application [here](netflixclonev3rma.netlify.app).
+You can check out the live demo of the application [here](https://netflixclonev3rma.vercel.app/).
 
 ## Installation
 
